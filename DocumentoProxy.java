@@ -14,10 +14,6 @@ public class DocumentoProxy implements DocumentoAccesible {
         }
     }
 
-    public String getTitulo() {
-        return documento.getTitulo();
-    }
-
     private boolean verificarPermiso(Usuario usuario) {
         switch (usuario.getRol()) {
             case "Administrador":
@@ -29,5 +25,9 @@ public class DocumentoProxy implements DocumentoAccesible {
             default:
                 return false;
         }
+    }
+
+    public String getTitulo(){
+        return documento.getTitulo();
     }
 }

@@ -68,6 +68,19 @@ public class Sistema {
             () -> System.out.println("Usuario no encontrado.")
         );
     }
+    public void modificarDocumento(String titulo, String nuevoContenido, Usuario usuario) {
+        if (usuario.getRol().equals("Administrador")) {
+            for (DocumentoProxy docProxy : documentos) {
+                if (docProxy.documento.getTitulo().equals(titulo)) {
+                    docProxy.documento.modificarContenido(nuevoContenido);
+                    return;
+                }
+            }
+            System.out.println("Documento no encontrado: " + titulo);
+        } else {
+            System.out.println("Acceso denegado: solo los administradores pueden modificar el contenido de los documentos.");
+        }
+    }
 
     public void listaUsuarios(){
         System.out.println("\nUsuarios:");

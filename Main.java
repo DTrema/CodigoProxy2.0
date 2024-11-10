@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Sistema sistema = new Sistema();
         Scanner scanner = new Scanner(System.in);
+        
+        // Usuario administrador para realizar operaciones administrativas
         Usuario admin = new Usuario("Admin", "Administrador", "Grupo_A");
         
         boolean running = true;
@@ -16,14 +18,14 @@ public class Main {
             System.out.println("4. Agregar documento (Solo admin)");
             System.out.println("5. Eliminar documento (Solo admin)");
             System.out.println("6. Acceder a documento");
-            System.out.println("7. Salir");
+            System.out.println("7. Modificar contenido de documento (Solo admin)");
+            System.out.println("8. Salir");
             System.out.print("Elige una opción: ");
             int opcion = scanner.nextInt();
             scanner.nextLine(); // Consume la nueva línea
 
             switch (opcion) {
                 case 1:
-                    sistema.listaUsuarios();
                     System.out.print("Nombre del usuario: ");
                     String nombre = scanner.nextLine();
                     System.out.print("Rol del usuario (Empleado, Gerente, Administrador): ");
@@ -67,7 +69,6 @@ public class Main {
                     break;
 
                 case 6:
-                    sistema.listaDocumentos();
                     System.out.print("Nombre del usuario que accede: ");
                     nombre = scanner.nextLine();
                     System.out.print("Título del documento: ");
@@ -79,6 +80,14 @@ public class Main {
                     break;
 
                 case 7:
+                    System.out.print("Título del documento a modificar: ");
+                    titulo = scanner.nextLine();
+                    System.out.print("Nuevo contenido del documento: ");
+                    String nuevoContenido = scanner.nextLine();
+                    sistema.modificarDocumento(titulo, nuevoContenido, admin);
+                    break;
+
+                case 8:
                     running = false;
                     break;
 
@@ -90,3 +99,4 @@ public class Main {
         scanner.close();
     }
 }
+
