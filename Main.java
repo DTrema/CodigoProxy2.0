@@ -15,10 +15,10 @@ public class Main {
             System.out.println("1. Registrar usuario");
             System.out.println("2. Cambiar rol de usuario");
             System.out.println("3. Cambiar grupo de usuario");
-            System.out.println("4. Agregar documento (Solo admin)");
-            System.out.println("5. Eliminar documento (Solo admin)");
+            System.out.println("4. Agregar documento");
+            System.out.println("5. Eliminar documento");
             System.out.println("6. Acceder a documento");
-            System.out.println("7. Modificar contenido de documento (Solo admin)");
+            System.out.println("7. Modificar contenido de documento");
             System.out.println("8. Salir");
             System.out.print("Elige una opción: ");
             int opcion = scanner.nextInt();
@@ -36,6 +36,7 @@ public class Main {
                     break;
 
                 case 2:
+                    sistema.listaUsuarios();
                     System.out.print("Nombre del usuario: ");
                     nombre = scanner.nextLine();
                     System.out.print("Nuevo rol (Empleado, Gerente, Administrador): ");
@@ -44,6 +45,7 @@ public class Main {
                     break;
 
                 case 3:
+                    sistema.listaUsuarios();
                     System.out.print("Nombre del usuario: ");
                     nombre = scanner.nextLine();
                     System.out.print("Nuevo grupo (Grupo_A, Grupo_B, Grupo_C, Grupo_D): ");
@@ -63,12 +65,14 @@ public class Main {
                     break;
 
                 case 5:
+                    sistema.listaDocumentos();
                     System.out.print("Título del documento a eliminar: ");
                     titulo = scanner.nextLine();
                     sistema.eliminarDocumento(titulo, admin);
                     break;
 
                 case 6:
+                    sistema.listaDocumentos();
                     System.out.print("Nombre del usuario que accede: ");
                     nombre = scanner.nextLine();
                     System.out.print("Título del documento: ");
@@ -80,6 +84,7 @@ public class Main {
                     break;
 
                 case 7:
+                    sistema.listaDocumentos();
                     System.out.print("Título del documento a modificar: ");
                     titulo = scanner.nextLine();
                     System.out.print("Nuevo contenido del documento: ");
