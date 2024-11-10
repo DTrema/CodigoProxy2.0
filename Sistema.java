@@ -68,4 +68,18 @@ public class Sistema {
             () -> System.out.println("Usuario no encontrado.")
         );
     }
+
+    public void listaUsuarios(){
+        System.out.println("\nUsuarios:");
+        for(Usuario usuario : usuarios){
+            System.out.println("- " + usuario.getNombre());
+        }
+    }
+
+    public void listaDocumentos(){
+        System.out.println("\nDocumentos:");
+        for(DocumentoProxy documento : documentos){
+            System.out.println("- " + documento.getTitulo());
+        }
+    }
 }

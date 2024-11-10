@@ -23,6 +23,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+                    sistema.listaUsuarios();
                     System.out.print("Nombre del usuario: ");
                     String nombre = scanner.nextLine();
                     System.out.print("Rol del usuario (Empleado, Gerente, Administrador): ");
@@ -66,6 +67,7 @@ public class Main {
                     break;
 
                 case 6:
+                    sistema.listaDocumentos();
                     System.out.print("Nombre del usuario que accede: ");
                     nombre = scanner.nextLine();
                     System.out.print("Título del documento: ");
